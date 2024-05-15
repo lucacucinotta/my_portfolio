@@ -1,0 +1,39 @@
+import Navbar from "./components/Navbar";
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import Home from "./sections/Home";
+import About from "./sections/About";
+import Projects from "./sections/Projects/Projects";
+import Toolkit from "./sections/Toolkit/Toolkit";
+import Contact from "./sections/Contact";
+import Footer from "./components/Footer";
+import { useSelector } from "react-redux";
+import "./App.css";
+
+export default function App() {
+  const { isShown } = useSelector((state) => state.burgerMenuState);
+
+  return (
+    <div className="bg-slate-950">
+      <BurgerMenu />
+      <Navbar />
+      <div className={isShown ? "blur-sm" : null}>
+        <section className="flex h-[calc(100vh-72px)]">
+          <Home />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="toolkit">
+          <Toolkit />
+        </section>
+        <section id="contact-me" className="h-[calc(100vh-92px)]">
+          <Contact />
+        </section>
+        <Footer />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,72 @@
+{
+  "projects": [
+    {
+      "projectName": "New York Times Clone",
+      "intro": "React",
+      "description": "The project consists in the creation of a clone of the famous newspaper's website New York Times. The site aims to recreate what is the homepage of the NYT, showing the articles received from the API provided by the site itself.",
+      "tools": [
+        {
+          "toolName": "React"
+        },
+        {
+          "toolName": "Redux"
+        },
+        {
+          "toolName": "React Router"
+        },
+        {
+          "toolName": "React Query"
+        }
+      ],
+      "links": {
+        "gitHub": "https://github.com/lucacucinotta/New-York-Times-Clone.git",
+        "website": "https://newyorktimes-website-clone.netlify.app"
+      }
+    },
+    {
+      "projectName": "Planty Of Food API",
+      "intro": "Node.js",
+      "description": "The project consists of creating RESTful JSON APIs to manage groupspurchase order of the Planty of Food company. The APIs will allow the execution of CRUD operations (Create, Read, Update, Delete) on different entities maintaining strict adherence to REST architectural standards.",
+      "tools": [
+        {
+          "toolName": "Node.js"
+        },
+        {
+          "toolName": "Express.js"
+        },
+        {
+          "toolName": "MongoDB"
+        },
+        {
+          "toolName": "Mongoose"
+        }
+      ],
+      "links": {
+        "gitHub": "https://github.com/lucacucinotta/PlantyOfFoodAPI_node.git"
+      }
+    },
+    {
+      "projectName": "FlickPicks",
+      "intro": "Full Stack",
+      "description": "It is a web application based on MERN technology that allows user to explore a large collection of movies and save the ones that him like in custom lists. Includes front-end functionality to handle API RESTful calls for login/logout and user registration and to allow the user to save his favorite films in personal lists.",
+      "tools": [
+        {
+          "toolName": "MongoDB"
+        },
+        {
+          "toolName": "Express.js"
+        },
+        {
+          "toolName": "React"
+        },
+        {
+          "toolName": "Node.js"
+        }
+      ],
+      "links": {
+        "gitHub": "https://github.com/lucacucinotta/FlickPicks.git",
+        "website": "https://flickpicks-hub.vercel.app"
+      }
+    }
+  ]
+}
