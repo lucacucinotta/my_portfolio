@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { showBurgerMenu, hideBurgerMenu } from "../states/burgerMenu";
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import Logo from "../assets/img/logo.jpg";
+import data from "./utils/pageNavigation.json";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -20,6 +22,11 @@ export default function Navbar() {
     }
   });
 
+  const navLinkVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <motion.nav
       id="navbar"
@@ -29,25 +36,72 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 z-20 flex flex-row items-center justify-end p-3  ${
+      className={`sticky top-0 z-20 flex flex-row items-center justify-between p-5 xl:px-10 ${
         !isShown && "bg-slate-950 bg-opacity-80 backdrop-blur"
       }`}
     >
-      <Hamburger
-        rounded
-        color="rgb(59, 130, 246)"
-        size={30}
-        duration={0.5}
-        distance="md"
-        toggled={isShown}
-        toggle={() => {
-          if (isShown) {
-            dispatch(hideBurgerMenu());
-          } else {
-            dispatch(showBurgerMenu());
-          }
-        }}
+      <motion.img
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        src={Logo}
+        className="size-10 cursor-pointer"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       />
+      <div className="flex flex-row items-center gap-8 max-md:hidden">
+        {data.sections.map((section, index) => (
+          <motion.a
+            initial={navLinkVariants.hidden}
+            animate={navLinkVariants.visible}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              delay: index * 0.2,
+            }}
+            href={section.href}
+            key={index}
+          >
+            <div className="flex flex-row gap-1 text-sm">
+              <span className="font-mono text-blue-500">{`0${index + 1}.`}</span>
+              <span className="text-inter-500 link text-slate-300 ">
+                {section.sectionName}
+              </span>
+            </div>
+          </motion.a>
+        ))}
+        <motion.a
+          href="src/assets/pdf/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={navLinkVariants.hidden}
+          animate={navLinkVariants.visible}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
+          className="button text-inter-500 p-2 px-3 text-sm"
+        >
+          Resume
+        </motion.a>
+      </div>
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="text-blue-500 md:hidden"
+      >
+        <Hamburger
+          rounded
+          size={30}
+          duration={0.5}
+          distance="md"
+          toggled={isShown}
+          toggle={() => {
+            if (isShown) {
+              dispatch(hideBurgerMenu());
+            } else {
+              dispatch(showBurgerMenu());
+            }
+          }}
+        />
+      </motion.div>
     </motion.nav>
   );
 }

@@ -1,11 +1,12 @@
 import Navbar from "./components/Navbar";
-import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import BurgerMenu from "./components/BurgerMenu";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects/Projects";
 import Toolkit from "./sections/Toolkit/Toolkit";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
+import Link from "./components/Link";
 import { useSelector } from "react-redux";
 import "./App.css";
 
@@ -16,8 +17,9 @@ export default function App() {
     <div className="bg-slate-950">
       <BurgerMenu />
       <Navbar />
+      <Link />
       <div className={isShown ? "blur-sm" : null}>
-        <section className="flex h-[calc(100vh-72px)]">
+        <section className="flex h-[calc(100vh-72px)] items-center">
           <Home />
         </section>
         <section id="about">

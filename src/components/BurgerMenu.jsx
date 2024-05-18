@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
-import { hideBurgerMenu } from "../../states/burgerMenu";
+import { hideBurgerMenu } from "../states/burgerMenu";
 import { useClickAway } from "react-use";
 import { useRef } from "react";
-import data from "./utils.json";
+import data from "./utils/pageNavigation.json";
 
 export default function BurgerMenu() {
   const { isShown } = useSelector((state) => state.burgerMenuState);
@@ -18,7 +18,7 @@ export default function BurgerMenu() {
   });
 
   return (
-    <div ref={ref} className="flex justify-end">
+    <div ref={ref} className="flex justify-end md:hidden">
       <AnimatePresence>
         {isShown && (
           <motion.div
@@ -42,7 +42,7 @@ export default function BurgerMenu() {
             {data.sections.map((section, index) => (
               <a href={section.href} key={index}>
                 <div
-                  className="flex flex-col text-center"
+                  className="flex flex-col text-center min-[500px]:text-lg"
                   onClick={() => dispatch(hideBurgerMenu())}
                 >
                   <span className="font-mono text-blue-500">{`0${index + 1}`}</span>
@@ -56,8 +56,7 @@ export default function BurgerMenu() {
               href="src/assets/pdf/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              whileTap={{ scale: 0.9 }}
-              className="text-inter-500 rounded-md border-2 border-blue-500 px-10 py-3 text-blue-500"
+              className="button text-inter-500 px-10 py-3"
             >
               Resume
             </motion.a>

@@ -4,18 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .link {
+    @apply relative text-blue-500;
+  }
+  .link::after {
+    @apply absolute -bottom-[3px] left-0 h-[2px] w-[0%] bg-blue-500 duration-300 content-[''];
+  }
+  .link:hover::after {
+    @apply w-[100%];
+  }
+  .link:focus::after {
+    @apply w-[100%];
+  }
+
+  .button {
+    @apply relative z-20 cursor-pointer rounded-md border-2 border-blue-500 text-blue-500 transition-colors;
+  }
+  .button::after {
+    @apply absolute left-0 top-0 -z-10 h-full w-full origin-top-left scale-x-0 bg-blue-500 transition-transform duration-500 content-[''];
+  }
+  .button:hover {
+    @apply text-slate-300;
+  }
+  .button:hover::after {
+    @apply scale-x-100;
+  }
+}
+
 .text-inter-700 {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
-}
-
-.text-inter-600 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
   font-style: normal;
   font-variation-settings: "slnt" 0;
 }
@@ -32,4 +52,5 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
