@@ -1,6 +1,29 @@
 {
   "projects": [
     {
+      "projectName": "CodeChronicle",
+      "intro": "JavaScript",
+      "description": "It is a web application for the dissemination of technological's informations thanks to the API of Hacker News, a website that acts as a news aggregator and discussion forum for technology enthusiasts.",
+      "tools": [
+        {
+          "toolName": "JavaScript"
+        },
+        {
+          "toolName": "Sass"
+        },
+        {
+          "toolName": "Webpack"
+        },
+        {
+          "toolName": "API"
+        }
+      ],
+      "links": {
+        "gitHub": "https://github.com/lucacucinotta/CodeChronicle.git",
+        "website": "https://codechroniclenews.netlify.app"
+      }
+    },
+    {
       "projectName": "New York Times Clone",
       "intro": "React",
       "description": "The project consists in the creation of a clone of the famous newspaper's website New York Times. The site aims to recreate what is the homepage of the NYT, showing the articles received from the API provided by the site itself.",

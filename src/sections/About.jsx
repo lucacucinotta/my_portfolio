@@ -28,18 +28,14 @@ export default function About() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
         className="flex flex-row items-center gap-1"
       >
-        <span className="self-end font-mono text-lg text-blue-500 xl:text-xl">
-          01.
-        </span>
-        <h1 className="text-inter-700 me-1 text-2xl text-slate-300 md:text-3xl xl:text-4xl">
-          About
-        </h1>
+        <span className="sectionNumber">01.</span>
+        <h1 className="sectionTitle">About</h1>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={animationControls}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
-        className="md:flex md:gap-10 "
+        className="md:flex md:gap-10"
       >
         <div className="text-inter-500 space-y-3 text-sm leading-6 text-slate-300 md:text-base xl:text-lg">
           <p>

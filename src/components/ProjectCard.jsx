@@ -22,13 +22,16 @@ export default function ProjectCard({ data }) {
       initial={{ opacity: 0, y: 30 }}
       animate={animation}
       transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-      className="cursor-pointer space-y-5 rounded-md bg-slate-900 p-5"
+      className="flex flex-col gap-5 rounded-md bg-slate-900 p-5"
     >
-      <div>
+      <div className="flex flex-col gap-1">
         <span className="font-mono text-sm text-blue-500">{`${data.intro} Project`}</span>
-        <h1 className="text-inter-700 text-lg text-blue-500">
+        <a
+          href={data.links.website ? data.links.website : data.links.gitHub}
+          className="text-inter-700 w-fit cursor-pointer text-lg text-slate-300 transition-colors hover:text-blue-500"
+        >
           {data.projectName}
-        </h1>
+        </a>
       </div>
 
       <p className="text-inter-500 text-sm leading-6 text-slate-300">
@@ -41,13 +44,13 @@ export default function ProjectCard({ data }) {
         ))}
       </div>
 
-      <div className="flex flex-row items-center gap-4">
+      <div className="mt-auto flex flex-row items-center gap-4">
         <a href={data.links.gitHub}>
-          <FiGithub className="size-5 text-slate-300 hover:scale-110 hover:text-blue-500" />
+          <FiGithub className="size-5 text-slate-300 duration-200 hover:scale-110 hover:text-blue-500" />
         </a>
         {data.links.website && (
           <a href={data.links.website}>
-            <FiArrowUpRight className="size-6 text-slate-300 hover:scale-110 hover:text-blue-500" />
+            <FiArrowUpRight className="size-6 text-slate-300 duration-200 hover:scale-110 hover:text-blue-500" />
           </a>
         )}
       </div>

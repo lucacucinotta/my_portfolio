@@ -30,6 +30,13 @@
   .button:hover::after {
     @apply scale-x-100;
   }
+
+  .sectionNumber {
+    @apply self-end font-mono text-lg text-blue-500 xl:text-xl;
+  }
+  .sectionTitle {
+    @apply text-inter-700 me-1 text-2xl text-slate-300 md:text-3xl xl:text-4xl;
+  }
 }
 
 .text-inter-700 {

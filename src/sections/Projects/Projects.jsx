@@ -21,7 +21,7 @@ export default function Projects() {
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={animationControls}
-      className="space-y-4 border-2 border-green-500 p-5"
+      className="space-y-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
     >
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -29,12 +29,14 @@ export default function Projects() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
         className="flex flex-row items-center gap-1"
       >
-        <span className="font-mono text-lg text-blue-500">02.</span>
-        <h1 className="text-inter-700 text-2xl text-slate-300">Projects</h1>
+        <span className="sectionNumber">02.</span>
+        <h1 className="sectionTitle">Projects</h1>
       </motion.div>
-      {data.projects.map((project, index) => (
-        <ProjectCard key={index} data={project} />
-      ))}
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
+        {data.projects.map((project, index) => (
+          <ProjectCard key={index} data={project} />
+        ))}
+      </div>
     </motion.div>
   );
 }

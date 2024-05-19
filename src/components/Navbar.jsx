@@ -36,8 +36,8 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 z-20 flex flex-row items-center justify-between p-5 xl:px-10 ${
-        !isShown && "bg-slate-950 bg-opacity-80 backdrop-blur"
+      className={`sticky top-0 z-30 flex flex-row items-center justify-between p-5 xl:px-10 ${
+        !isShown && "bg-slate-950 bg-opacity-85 backdrop-blur"
       }`}
     >
       <motion.img
