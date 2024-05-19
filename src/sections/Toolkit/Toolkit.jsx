@@ -20,7 +20,7 @@ export default function Skills() {
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={animationControls}
-      className="space-y-4 border-2 border-red-900 p-5"
+      className="space-y-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
     >
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -28,14 +28,14 @@ export default function Skills() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
         className="flex flex-row items-center gap-1"
       >
-        <span className="font-mono text-lg text-blue-500">03.</span>
-        <h1 className="text-inter-700 text-2xl text-slate-300"> My Toolkit</h1>
+        <span className="sectionNumber">03.</span>
+        <h1 className="sectionTitle"> My Toolkit</h1>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={animationControls}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
-        className="grid grid-cols-3 gap-10 p-5"
+        className="grid grid-cols-3 gap-10 p-5 lg:grid-cols-5"
       >
         {toolArray.map((tool, index) => (
           <div
