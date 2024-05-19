@@ -6,7 +6,7 @@ export default function Home() {
     visible: { opacity: 1, y: 0 },
   };
   return (
-    <motion.div className="flex flex-col items-start gap-4 p-5 min-[500px]:px-10 md:px-20 lg:px-32 xl:px-40 2xl:px-52">
+    <motion.div className="flex flex-col items-start gap-4 p-5 min-[500px]:px-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]">
       <motion.span
         variants={variants}
         initial="hidden"

@@ -19,7 +19,7 @@ export default function App() {
       <Navbar />
       <Link />
       <div className={isShown ? "blur-sm" : null}>
-        <section className="flex h-[calc(100vh-72px)] items-center">
+        <section className="flex min-h-[calc(100vh-72px)] items-center">
           <Home />
         </section>
         <section id="about">
