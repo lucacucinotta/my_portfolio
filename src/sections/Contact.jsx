@@ -17,7 +17,7 @@ export default function Contact() {
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={animationControls}
-      className="flex flex-col items-center gap-4 p-5"
+      className="flex flex-col items-center gap-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
     >
       <motion.div
         initial={{ opacity: 0, y: -30 }}
@@ -25,15 +25,13 @@ export default function Contact() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
         className="space-y-3 text-center"
       >
-        <div className=" flex flex-row items-center justify-center gap-1 font-mono text-lg text-blue-500">
+        <div className="flex justify-center gap-1 font-mono text-lg text-blue-500 xl:text-xl">
           <span>04.</span>
           <span> What&apos;s Next?</span>
         </div>
 
-        <h1 className="text-inter-700 text-2xl text-slate-300">
-          Let&apos;s Get In Touch!
-        </h1>
-        <p className="text-inter-500 text-sm text-slate-300">
+        <h1 className="sectionTitle">Let&apos;s Get In Touch!</h1>
+        <p className="text-inter-500 text-sm text-slate-300 xl:text-base">
           If you want to work with me or have any question feel free to write
           me.
         </p>
@@ -44,30 +42,30 @@ export default function Contact() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
         action="https://formspree.io/f/xkndeozg"
         method="POST"
-        className="flex w-full flex-col gap-5"
+        className="flex w-full flex-col gap-5 min-[500px]:max-w-[420px] md:max-w-[500px] 2xl:max-w-[600px]"
       >
         <input
           required
           type="text"
           name="name"
           placeholder="Name"
-          className="placeholder:text-inter-500 rounded-md p-2 text-sm text-slate-950 placeholder:text-sm focus:outline-none focus:outline-blue-500"
+          className="formField"
         />
         <input
           required
           type="email"
           name="email"
           placeholder="Email"
-          className="placeholder:text-inter-500 rounded-md p-2 text-sm text-slate-950 placeholder:text-sm focus:outline-none focus:outline-blue-500"
+          className="formField"
         />
         <textarea
           required
           type="text"
           name="message"
           placeholder="Message"
-          className="placeholder:text-inter-500 h-24 rounded-md p-2 text-sm text-slate-950 placeholder:text-sm focus:outline-none focus:outline-blue-500"
+          className="formField h-24"
         />
-        <button className="text-inter-500 mt-4 w-fit self-center rounded-md bg-blue-500 px-3 py-2 text-sm">
+        <button className="text-inter-500 button mt-4 self-center px-3 py-2 text-sm xl:text-base">
           Send Message
         </button>
       </motion.form>

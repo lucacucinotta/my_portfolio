@@ -35,7 +35,11 @@
     @apply self-end font-mono text-lg text-blue-500 xl:text-xl;
   }
   .sectionTitle {
-    @apply text-inter-700 me-1 text-2xl text-slate-300 md:text-3xl xl:text-4xl;
+    @apply text-inter-700 text-2xl text-slate-300 md:text-3xl xl:text-4xl;
+  }
+
+  .formField {
+    @apply rounded-md p-2 text-sm text-slate-950 transition duration-200 placeholder:text-sm hover:bg-blue-100 focus:outline-none focus:outline-blue-500;
   }
 }
 
