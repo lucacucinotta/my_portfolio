@@ -1,40 +1,46 @@
 import Tool from "../components/Tool";
 import { FiGithub } from "react-icons/fi";
 import { FiArrowUpRight } from "react-icons/fi";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 export default function ProjectCard({ data }) {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true });
+  const { ref, inView } = useInView({ delay: 0.2, triggerOnce: true });
   const animation = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
+    if (inView) {
       animation.start({ opacity: 1, y: 0 });
     }
-  }, [isInView, animation]);
+  }, [inView, animation]);
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={animation}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-      className="flex flex-col gap-5 rounded-md bg-slate-900 p-5"
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="flex flex-col gap-6 rounded-md bg-slate-900 p-5 xl:p-6"
+      onMouseEnter={() =>
+        animation.start({ y: -5 }, { duration: 0.3, ease: "easeOut" })
+      }
+      onMouseLeave={() =>
+        animation.start({ y: 0 }, { duration: 0.3, ease: "easeOut" })
+      }
     >
       <div className="flex flex-col gap-1">
-        <span className="font-mono text-sm text-blue-500">{`${data.intro} Project`}</span>
+        <span className="font-mono text-sm text-blue-500 xl:text-base">{`${data.intro} Project`}</span>
         <a
           href={data.links.website ? data.links.website : data.links.gitHub}
-          className="text-inter-700 w-fit cursor-pointer text-lg text-slate-300 transition-colors hover:text-blue-500"
+          className="text-inter-700 w-fit cursor-pointer text-slate-300 duration-300 hover:text-blue-500 xl:text-lg"
         >
           {data.projectName}
         </a>
       </div>
 
-      <p className="text-inter-500 text-sm leading-6 text-slate-300">
+      <p className="text-inter-500 text-sm leading-6 text-slate-300 xl:text-base">
         {data.description}
       </p>
 
@@ -46,11 +52,11 @@ export default function ProjectCard({ data }) {
 
       <div className="mt-auto flex flex-row items-center gap-4">
         <a href={data.links.gitHub}>
-          <FiGithub className="size-5 text-slate-300 duration-200 hover:scale-110 hover:text-blue-500" />
+          <FiGithub className="size-5 text-slate-300 duration-300 hover:scale-110 hover:text-blue-500" />
         </a>
         {data.links.website && (
           <a href={data.links.website}>
-            <FiArrowUpRight className="size-6 text-slate-300 duration-200 hover:scale-110 hover:text-blue-500" />
+            <FiArrowUpRight className="size-6 text-slate-300 duration-300 hover:scale-110 hover:text-blue-500" />
           </a>
         )}
       </div>

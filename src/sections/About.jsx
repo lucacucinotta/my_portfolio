@@ -1,27 +1,27 @@
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 import Me from "../assets/img/me.jpg";
 
 export default function About() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true });
+  const { ref, inView } = useInView({
+    rootMargin: "0px 0px -150px 0px",
+    triggerOnce: true,
+  });
   const animationControls = useAnimation();
   const titleControls = useAnimation();
+  const imageControls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
+    if (inView) {
       animationControls.start({ opacity: 1, y: 0 });
       titleControls.start({ opacity: 1, x: 0 });
+      imageControls.start({ opacity: 1, y: 0 });
     }
-  }, [isInView, animationControls, titleControls]);
+  }, [inView, animationControls, titleControls, imageControls]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={animationControls}
-      className="space-y-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
-    >
+    <div ref={ref} className="midSection">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={titleControls}
@@ -37,7 +37,7 @@ export default function About() {
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
         className="md:flex md:gap-10"
       >
-        <div className="text-inter-500 space-y-3 text-sm leading-6 text-slate-300 md:text-base xl:text-lg">
+        <div className="text-inter-500 space-y-3 text-pretty text-sm leading-6 text-slate-300 md:text-base xl:text-lg">
           <p>
             Hello again! I&apos;m Luca, a Junior Full Stack Developer based in
             Messina, Sicily.
@@ -50,23 +50,27 @@ export default function About() {
           <p>
             After that, I took part in the Full Stack Development course offered
             by{" "}
-            <a
-              href="https://www.start2impact.it"
-              className="link text-blue-500"
-            >
-              start2impact
-            </a>{" "}
-            , from wich I obtained a{" "}
+            <span className="whitespace-nowrap">
+              <a
+                href="https://www.start2impact.it"
+                className="link text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                start2impact
+              </a>
+              ,
+            </span>{" "}
+            from which I obtained a{" "}
             <a
               href="src/assets/pdf/master.pdf"
               className="link text-blue-500"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="after:text-slate-300 after:content-['.']">
-                master&apos;s&nbsp;degree
-              </span>
+              master&apos;s&nbsp;degree
             </a>
+            .
             <br />
             This experience contributed significantly to increasing my
             educational background, allowing me to learn the fundamental
@@ -74,7 +78,7 @@ export default function About() {
           </p>
 
           <p>
-            Today I&apos;m ready and excited to put my skills into practice: my
+            Today I&apos;m ready and excited to put my skills into practice. My
             goal is to continue to grow professionally, facing new challenges
             and seizing every learning opportunity in my journey as a web
             developer.
@@ -83,12 +87,24 @@ export default function About() {
 
         <motion.img
           initial={{ opacity: 0, y: 30 }}
-          animate={animationControls}
+          animate={imageControls}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+          onMouseEnter={() =>
+            imageControls.start(
+              { rotateX: 10, rotateY: 10 },
+              { duration: 0.3, ease: "easeOut" },
+            )
+          }
+          onMouseLeave={() =>
+            imageControls.start(
+              { rotateX: 0, rotateY: 0 },
+              { duration: 0.5, ease: "easeOut" },
+            )
+          }
           src={Me}
-          className="h-full rounded max-md:hidden md:w-52 lg:w-56"
+          className="h-full rounded max-md:hidden md:w-44 lg:w-48"
         ></motion.img>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

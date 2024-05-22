@@ -4,7 +4,7 @@ import {
   FaCss3Alt,
   FaReact,
   FaNodeJs,
-  //   FaBootstrap,
+  FaBootstrap,
   FaGitAlt,
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
@@ -17,6 +17,8 @@ import {
   SiMongoose,
   SiTailwindcss,
   SiExpress,
+  SiJest,
+  SiFramer,
 } from "react-icons/si";
 
 export const toolArray = [
@@ -25,7 +27,7 @@ export const toolArray = [
   { icon: FaSass, name: "Sass" },
   { icon: IoLogoJavascript, name: "JavaScript" },
   { icon: SiTailwindcss, name: "Tailwind" },
-  //   { icon: FaBootstrap, name: "Bootstrap" },
+  { icon: FaBootstrap, name: "Bootstrap" },
   { icon: FaReact, name: "React" },
   { icon: SiRedux, name: "Redux" },
   { icon: SiReactquery, name: "React Query" },
@@ -36,4 +38,6 @@ export const toolArray = [
   { icon: SiMongoose, name: "Mongoose" },
   { icon: FaGitAlt, name: "Git" },
   { icon: FiGithub, name: "GitHub" },
+  { icon: SiFramer, name: "Framer Motion" },
+  { icon: SiJest, name: "Jest" },
 ];

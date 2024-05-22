@@ -19,7 +19,7 @@ export default function App() {
       <Navbar />
       <Link />
       <div className={isShown ? "blur-sm" : null}>
-        <section className="flex min-h-[calc(100vh-72px)] items-center">
+        <section className="flex min-h-[calc(100vh-85px)] items-center">
           <Home />
         </section>
         <section id="about">
@@ -31,7 +31,10 @@ export default function App() {
         <section id="toolkit">
           <Toolkit />
         </section>
-        <section id="contact-me" className="h-[calc(100vh-92px)]">
+        <section
+          id="contact-me"
+          className="flex h-[calc(100vh-92px)] items-center justify-center md:h-[calc(100vh-72px)] "
+        >
           <Contact />
         </section>
         <Footer />

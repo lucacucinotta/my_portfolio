@@ -14,15 +14,12 @@
   .link:hover::after {
     @apply w-[100%];
   }
-  .link:focus::after {
-    @apply w-[100%];
-  }
 
   .button {
-    @apply relative z-20 cursor-pointer rounded-md border-2 border-blue-500 text-blue-500 transition-colors;
+    @apply relative z-20 cursor-pointer rounded-md border-2 border-blue-500 text-blue-500;
   }
   .button::after {
-    @apply absolute left-0 top-0 -z-10 h-full w-full origin-top-left scale-x-0 bg-blue-500 transition-transform duration-500 content-[''];
+    @apply absolute left-0 top-0 -z-10 h-full w-full origin-top-left scale-x-0 bg-blue-500 duration-500 content-[''];
   }
   .button:hover {
     @apply text-slate-300;
@@ -39,7 +36,18 @@
   }
 
   .formField {
-    @apply rounded-md p-2 text-sm text-slate-950 transition duration-200 placeholder:text-sm hover:bg-blue-100 focus:outline-none focus:outline-blue-500;
+    @apply rounded-md p-2 text-sm text-slate-950 transition duration-200 placeholder:text-sm hover:bg-blue-100 focus:outline-none;
+  }
+
+  .linkIcon {
+    @apply cursor-pointer text-slate-300 duration-300 hover:scale-110 hover:text-blue-500;
+  }
+
+  .extSection {
+    @apply flex flex-col gap-4 px-5 min-[500px]:px-10 md:px-20 lg:px-[120px] xl:px-40;
+  }
+  .midSection {
+    @apply space-y-4 p-5 min-[500px]:p-10 md:px-20 md:py-10 lg:px-[120px] lg:py-[60px] xl:px-40 xl:py-20;
   }
 }
 

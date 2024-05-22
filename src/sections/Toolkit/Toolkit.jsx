@@ -1,27 +1,25 @@
 import { toolArray } from "./utils";
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 export default function Skills() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true });
+  const { ref, inView } = useInView({
+    rootMargin: "0px 0px -150px 0px",
+    triggerOnce: true,
+  });
   const animationControls = useAnimation();
   const titleControls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
+    if (inView) {
       animationControls.start({ opacity: 1, y: 0 });
       titleControls.start({ opacity: 1, x: 0 });
     }
-  }, [isInView, animationControls, titleControls]);
+  }, [inView, animationControls, titleControls]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={animationControls}
-      className="space-y-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
-    >
+    <div ref={ref} className="midSection w-full">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={titleControls}
@@ -35,20 +33,22 @@ export default function Skills() {
         initial={{ opacity: 0, y: 30 }}
         animate={animationControls}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
-        className="grid grid-cols-3 gap-10 p-5 lg:grid-cols-5"
+        className="grid grid-cols-3 gap-10 p-5 lg:grid-cols-6"
       >
         {toolArray.map((tool, index) => (
-          <div
+          <motion.div
             key={index}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="flex flex-col items-center justify-center"
           >
-            <tool.icon size={40} className="fill-slate-300" />
+            <tool.icon className="size-10 text-slate-300 md:size-12 xl:size-14" />
             <span className="text-center font-mono text-sm text-slate-300">
               {tool.name}
             </span>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

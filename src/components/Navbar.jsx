@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Logo from "../assets/img/logo.jpg";
 import data from "./utils/pageNavigation.json";
+import ResumeButton from "./ResumeButton";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -36,14 +37,14 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 z-30 flex flex-row items-center justify-between p-5 xl:px-10 ${
-        !isShown && "bg-slate-950 bg-opacity-85 backdrop-blur"
+      className={`sticky top-0 z-30 flex h-[85px] flex-row items-center justify-between px-5 xl:px-10 ${
+        !isShown ? "bg-slate-950 bg-opacity-85 backdrop-blur" : null
       }`}
     >
       <motion.img
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 1.4, ease: "easeInOut" }}
         src={Logo}
         className="size-10 cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -69,17 +70,7 @@ export default function Navbar() {
             </div>
           </motion.a>
         ))}
-        <motion.a
-          href="src/assets/pdf/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={navLinkVariants.hidden}
-          animate={navLinkVariants.visible}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
-          className="button text-inter-500 p-2 px-3 text-sm"
-        >
-          Resume
-        </motion.a>
+        <ResumeButton />
       </div>
       <motion.div
         initial={{ opacity: 0, x: 30 }}

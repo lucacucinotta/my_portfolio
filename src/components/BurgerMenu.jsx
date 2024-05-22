@@ -4,6 +4,7 @@ import { hideBurgerMenu } from "../states/burgerMenu";
 import { useClickAway } from "react-use";
 import { useRef } from "react";
 import data from "./utils/pageNavigation.json";
+import ResumeButton from "./ResumeButton";
 
 export default function BurgerMenu() {
   const { isShown } = useSelector((state) => state.burgerMenuState);
@@ -16,6 +17,11 @@ export default function BurgerMenu() {
       dispatch(hideBurgerMenu());
     }
   });
+
+  const navLinkVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <div ref={ref} className="flex justify-end md:hidden">
@@ -40,7 +46,17 @@ export default function BurgerMenu() {
             className="fixed z-10 flex h-full w-3/4 flex-col items-center justify-center gap-10 bg-slate-900 pt-10"
           >
             {data.sections.map((section, index) => (
-              <a href={section.href} key={index}>
+              <motion.a
+                initial={navLinkVariants.hidden}
+                animate={navLinkVariants.visible}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                  delay: index * 0.2,
+                }}
+                href={section.href}
+                key={index}
+              >
                 <div
                   className="flex flex-col text-center min-[500px]:text-lg"
                   onClick={() => dispatch(hideBurgerMenu())}
@@ -50,16 +66,9 @@ export default function BurgerMenu() {
                     {section.sectionName}
                   </span>
                 </div>
-              </a>
+              </motion.a>
             ))}
-            <motion.a
-              href="src/assets/pdf/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button text-inter-500 px-10 py-3"
-            >
-              Resume
-            </motion.a>
+            <ResumeButton />
           </motion.div>
         )}
       </AnimatePresence>

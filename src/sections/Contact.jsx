@@ -1,24 +1,25 @@
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
-  const ref = useRef();
-  const isInView = useInView(ref, { once: true });
+  const { ref, inView } = useInView({
+    rootMargin: "0px 0px -150px 0px",
+    triggerOnce: true,
+  });
   const animationControls = useAnimation();
 
+  const [email, setEmail] = useState("");
+  const [isErrorMail, setIsErrorMail] = useState(false);
+
   useEffect(() => {
-    if (isInView) {
+    if (inView) {
       animationControls.start({ opacity: 1, y: 0 });
     }
-  }, [isInView, animationControls]);
+  }, [inView, animationControls]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={animationControls}
-      className="flex flex-col items-center gap-4 p-5 min-[500px]:p-10 md:px-20 lg:px-[120px] xl:px-40 2xl:px-[200px]"
-    >
+    <div ref={ref} className="extSection items-center">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={animationControls}
@@ -31,7 +32,7 @@ export default function Contact() {
         </div>
 
         <h1 className="sectionTitle">Let&apos;s Get In Touch!</h1>
-        <p className="text-inter-500 text-sm text-slate-300 xl:text-base">
+        <p className="text-inter-500 text-sm text-slate-300 md:text-base xl:text-lg">
           If you want to work with me or have any question feel free to write
           me.
         </p>
@@ -55,8 +56,19 @@ export default function Contact() {
           required
           type="email"
           name="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)
+              ? setIsErrorMail(true)
+              : setIsErrorMail(false);
+          }}
           placeholder="Email"
-          className="formField"
+          className={`formField ${
+            isErrorMail &&
+            email.length > 0 &&
+            "bg-red-300 text-red-500 focus:bg-red-300"
+          }`}
         />
         <textarea
           required
@@ -65,10 +77,15 @@ export default function Contact() {
           placeholder="Message"
           className="formField h-24"
         />
-        <button className="text-inter-500 button mt-4 self-center px-3 py-2 text-sm xl:text-base">
+        <button
+          className="text-inter-500 button mt-4 self-center px-3 py-2 text-sm xl:text-base"
+          onClick={(e) => {
+            isErrorMail && e.preventDefault();
+          }}
+        >
           Send Message
         </button>
       </motion.form>
-    </motion.div>
+    </div>
   );
 }
