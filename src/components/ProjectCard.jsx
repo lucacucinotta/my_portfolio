@@ -34,6 +34,8 @@ export default function ProjectCard({ data }) {
         <span className="font-mono text-sm text-blue-500 xl:text-base">{`${data.intro} Project`}</span>
         <a
           href={data.links.website ? data.links.website : data.links.gitHub}
+          target="_blank"
+          rel="nooper noreferrer"
           className="text-inter-700 w-fit cursor-pointer text-slate-300 duration-300 hover:text-blue-500 xl:text-lg"
         >
           {data.projectName}
@@ -51,11 +53,11 @@ export default function ProjectCard({ data }) {
       </div>
 
       <div className="mt-auto flex flex-row items-center gap-4">
-        <a href={data.links.gitHub}>
+        <a href={data.links.gitHub} target="_blank" rel="nooper noreferrer">
           <FiGithub className="size-5 text-slate-300 duration-300 hover:scale-110 hover:text-blue-500" />
         </a>
         {data.links.website && (
-          <a href={data.links.website}>
+          <a href={data.links.website} target="_blank" rel="nooper noreferrer">
             <FiArrowUpRight className="size-6 text-slate-300 duration-300 hover:scale-110 hover:text-blue-500" />
           </a>
         )}

@@ -63,7 +63,7 @@ export default function About() {
             </span>{" "}
             from which I obtained a{" "}
             <a
-              href="src/assets/pdf/master.pdf"
+              href="/master.pdf"
               className="link text-blue-500"
               target="_blank"
               rel="noopener noreferrer"

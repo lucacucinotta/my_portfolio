@@ -3,6 +3,8 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
 export default function Contact() {
+  const contactKey = import.meta.env.VITE_CONTACT_KEY;
+
   const { ref, inView } = useInView({
     rootMargin: "0px 0px -150px 0px",
     triggerOnce: true,
@@ -17,6 +19,11 @@ export default function Contact() {
       animationControls.start({ opacity: 1, y: 0 });
     }
   }, [inView, animationControls]);
+
+  window.onbeforeunload = () => {
+    const form = document.querySelector("#contact_form");
+    form.reset();
+  };
 
   return (
     <div ref={ref} className="extSection items-center">
@@ -41,7 +48,8 @@ export default function Contact() {
         initial={{ opacity: 0, y: 30 }}
         animate={animationControls}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-        action="https://formspree.io/f/xkndeozg"
+        action={contactKey}
+        id="contact_form"
         method="POST"
         className="flex w-full flex-col gap-5 min-[500px]:max-w-[420px] md:max-w-[500px] 2xl:max-w-[600px]"
       >
