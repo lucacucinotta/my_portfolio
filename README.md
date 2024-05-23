@@ -1,7 +1,7 @@
 <div align="center"><img src="/src/assets/img/logo.jpg" width="150px"></div>
 <h1 align="center">Luca Cucinotta's Portfolio</h1>
 <br>
-<p align="center">Click <a href="https://flickpicks-hub.vercel.app"><strong>here</strong></a> to visit the portfolio.
+<p align="center">Click <a href="https://lucacucinotta.netlify.app/"><strong>here</strong></a> to visit the portfolio.
 </p>
 
 ## 🗂️ Table of contents
