@@ -36,7 +36,7 @@
   }
 
   .formField {
-    @apply rounded-md p-2 text-sm text-slate-950 transition duration-200 placeholder:text-sm hover:bg-blue-100 focus:outline-none;
+    @apply w-full rounded-md p-2 text-sm text-slate-950 transition duration-200 placeholder:text-sm hover:bg-blue-100 focus:outline-none;
   }
 
   .linkIcon {

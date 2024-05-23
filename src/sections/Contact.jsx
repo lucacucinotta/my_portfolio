@@ -53,31 +53,40 @@ export default function Contact() {
         method="POST"
         className="flex w-full flex-col gap-5 min-[500px]:max-w-[420px] md:max-w-[500px] 2xl:max-w-[600px]"
       >
+        <div className="flex gap-2">
+          <input
+            required
+            type="text"
+            name="name"
+            placeholder="Name"
+            className="formField"
+          />
+          <input
+            required
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)
+                ? setIsErrorMail(true)
+                : setIsErrorMail(false);
+            }}
+            placeholder="Email"
+            className={`formField ${
+              isErrorMail &&
+              email.length > 0 &&
+              "bg-red-300 text-red-500 focus:bg-red-300"
+            }`}
+          />
+        </div>
+
         <input
-          required
           type="text"
-          name="name"
-          placeholder="Name"
+          name="subject"
+          placeholder="Subject"
           className="formField"
-        />
-        <input
-          required
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)
-              ? setIsErrorMail(true)
-              : setIsErrorMail(false);
-          }}
-          placeholder="Email"
-          className={`formField ${
-            isErrorMail &&
-            email.length > 0 &&
-            "bg-red-300 text-red-500 focus:bg-red-300"
-          }`}
-        />
+        ></input>
         <textarea
           required
           type="text"
