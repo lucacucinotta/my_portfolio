@@ -33,7 +33,7 @@ export default function App() {
         </section>
         <section
           id="contact-me"
-          className="flex h-[calc(100vh-92px)] items-center justify-center md:h-[calc(100vh-72px)] "
+          className="flex min-h-[calc(100vh-92px)] items-center justify-center md:min-h-[calc(100vh-72px)] "
         >
           <Contact />
         </section>

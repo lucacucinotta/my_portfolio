@@ -8,7 +8,7 @@ export default function Footer() {
           <link.icon key={index} size={20} className="linkIcon" />
         ))}
       </div>
-      <p className="text-inter-500 text-center text-sm text-slate-300">
+      <p className="text-inter-500 xl:e text-center text-sm text-slate-300 xl:text-base">
         Luca Cucinotta | Portfolio ©2024
       </p>
     </footer>

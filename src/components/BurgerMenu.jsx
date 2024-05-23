@@ -43,7 +43,7 @@ export default function BurgerMenu() {
             transition={{
               duration: 0.2,
             }}
-            className="fixed z-10 flex h-full w-3/4 flex-col items-center justify-center gap-10 bg-slate-900 pt-10"
+            className="fixed z-10 flex min-h-full w-3/4 flex-col items-center justify-center gap-10 bg-slate-900 pt-10"
           >
             {data.sections.map((section, index) => (
               <motion.a
