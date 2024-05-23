@@ -46,7 +46,7 @@ export default function ResumeButton() {
             className={`flex flex-row justify-between gap-3 px-3`}
           >
             <a
-              href="src/assets/pdf/resume_ita.pdf"
+              href="src/assets/pdf/luca_cucinotta_resume_ita.pdf"
               target="_blank"
               rel="nooper noreferrer"
               className="duration-200 hover:scale-125"
@@ -54,7 +54,7 @@ export default function ResumeButton() {
               <img src={Ita} className="size-6" />
             </a>
             <a
-              href="src/assets/pdf/resume_eng.pdf"
+              href="src/assets/pdf/luca_cucinotta_resume_eng.pdf"
               target="_blank"
               rel="nooper noreferrer"
               className="duration-200 hover:scale-125"
