@@ -77,12 +77,7 @@ export default function Contact() {
           placeholder="Message"
           className="formField h-24"
         />
-        <button
-          className="text-inter-500 button mt-4 self-center px-3 py-2 text-sm xl:text-base"
-          onClick={(e) => {
-            isErrorMail && e.preventDefault();
-          }}
-        >
+        <button className="text-inter-500 button mt-4 self-center px-3 py-2 text-sm xl:text-base">
           Send Message
         </button>
       </motion.form>
