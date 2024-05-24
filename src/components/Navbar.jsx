@@ -16,10 +16,12 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if (previous < latest) {
-      setHidden(true);
-    } else {
-      setHidden(false);
+    if (previous > 50) {
+      if (previous < latest) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
     }
   });
 
@@ -37,7 +39,7 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 z-30 flex h-[85px] flex-row items-center justify-between px-5 xl:px-10 ${
+      className={`sticky top-0 z-30 flex h-[px] flex-row items-center justify-between px-5 xl:px-10 ${
         !isShown ? "bg-slate-950 bg-opacity-85 backdrop-blur" : null
       }`}
     >

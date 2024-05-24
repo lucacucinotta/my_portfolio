@@ -47,7 +47,7 @@
     @apply flex flex-col gap-4 px-5 min-[500px]:px-10 md:px-20 lg:px-[120px] xl:px-40;
   }
   .midSection {
-    @apply space-y-4 p-5 min-[500px]:p-10 md:px-20 md:py-10 lg:px-[120px] lg:py-[60px] xl:px-40 xl:py-20;
+    @apply space-y-4 p-5 py-16 min-[500px]:px-10 md:px-20 lg:px-[120px] xl:px-40 xl:py-[94px];
   }
 }
 
