@@ -51,7 +51,7 @@ export default function ResumeButton() {
             <a
               href={resumeIta}
               target="_blank"
-              rel="nooper noreferrer"
+              rel="noopener noreferrer"
               className="duration-200 hover:scale-125"
             >
               <img src={Ita} className="size-6" />
@@ -59,7 +59,7 @@ export default function ResumeButton() {
             <a
               href={resumeEng}
               target="_blank"
-              rel="nooper noreferrer"
+              rel="noopener noreferrer"
               className="duration-200 hover:scale-125"
             >
               <img src={Eng} className="size-6" />

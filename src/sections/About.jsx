@@ -42,8 +42,8 @@ export default function About() {
             Hello again! I&apos;m Luca, a Junior Full Stack Developer based in
             Messina, Sicily.
             <br />
-            My journey began at 14 years old, when I&apos;ve decide to start
-            studying IT and Telecommunications.
+            My journey began at 14 years old, when I decided to start studying
+            IT and Telecommunications.
             <br /> I graduated in 2021 with a grade of 100/100ths.
           </p>
 
