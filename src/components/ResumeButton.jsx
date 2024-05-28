@@ -13,6 +13,9 @@ export default function ResumeButton() {
     }
   });
 
+  const resumeIta = import.meta.env.VITE_RESUME_ITA;
+  const resumeEng = import.meta.env.VITE_RESUME_ENG;
+
   return (
     <motion.div
       ref={ref}
@@ -46,7 +49,7 @@ export default function ResumeButton() {
             className={`flex flex-row justify-between gap-3 px-3`}
           >
             <a
-              href="/luca_cucinotta_resume_ita.pdf"
+              href={resumeIta}
               target="_blank"
               rel="nooper noreferrer"
               className="duration-200 hover:scale-125"
@@ -54,7 +57,7 @@ export default function ResumeButton() {
               <img src={Ita} className="size-6" />
             </a>
             <a
-              href="/luca_cucinotta_resume_eng.pdf"
+              href={resumeEng}
               target="_blank"
               rel="nooper noreferrer"
               className="duration-200 hover:scale-125"
